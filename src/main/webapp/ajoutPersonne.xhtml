@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/templates/mainTemplate.xhtml">
+
+    <ui:define name="bodyContent">
+        <h:form id="formulaire">
+            <fieldset>
+                <legend>Ajout Personne</legend>
+                <h:outputLabel for="fNom">Nom</h:outputLabel>-->
+                <p:inputText id="fNom"
+                             label="Nom"
+                             value="#{personBean.nom}"
+                             required="true"
+                             requiredMessage="Veuillez saisir un nom"
+                             size="20"
+                             maxlength="60">
+                    <f:validateLength minimum="2" maximum="10" />
+                    <f:ajax event="blur" render="newMessageError" />
+                </p:inputText>
+                <p:inputText id="fPrenom"
+                             label="Prenom"
+                             value="#{personBean.prenom}"
+                             required="true"
+                             requiredMessage="Veuillez saisir un prenom"
+                             size="20"
+                             maxlength="60">
+                    <f:validateLength minimum="2" maximum="10" />
+                    <f:ajax event="blur" render="newMessageError" />
+                </p:inputText>
+                <h:message id="newMessageError" for="fNom"/>
+            </fieldset>
+            <br/>
+            <br/>
+            <p:commandButton ajax="false" value="Ajout personne" action="#{personBean.createPerson()}"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
