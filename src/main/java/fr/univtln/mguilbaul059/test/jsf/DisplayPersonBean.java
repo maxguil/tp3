@@ -14,20 +14,13 @@ import java.util.List;
 @SessionScoped
 public class DisplayPersonBean implements Serializable{
 
-    List<Personne> personnes = new ArrayList<Personne>();
 
     @Inject
     PersonneManager pm;
 
-    public void getAll() {
-        personnes = pm.findAll();
+    public List<Personne> getAll() {
+        return  pm.findAll();
     }
 
-    public List<Personne> getPersonnes() {
-        return personnes;
-    }
 
-    public void setPersonnes(List<Personne> personnes) {
-        this.personnes = personnes;
-    }
 }

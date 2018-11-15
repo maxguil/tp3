@@ -33,9 +33,13 @@ public class PersonBean implements Serializable {
 
 
     @Transactional
-    public String createPerson() {
+    public void createPerson() throws IOException {
         em.persist(new Personne(nom,prenom));
-        return "create";
+        nom=null;
+        prenom=null;
+
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        ec.redirect(ec.getRequestContextPath() + "/accueil.jsf");
     }
 
 
@@ -46,4 +50,5 @@ public class PersonBean implements Serializable {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
+
 }

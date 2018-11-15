@@ -8,6 +8,17 @@
         <h:form id="formulaire">
             <fieldset>
                 <legend>Ajout Personne</legend>
+                <h:outputLabel for="fPrenom">Prenom</h:outputLabel>
+                <p:inputText id="fPrenom"
+                             label="Prenom"
+                             value="#{personBean.prenom}"
+                             required="true"
+                             requiredMessage="Veuillez saisir un prenom"
+                             size="20"
+                             maxlength="60">
+                    <f:validateLength minimum="2" maximum="10" />
+                    <f:ajax event="blur" render="newMessageError" />
+                </p:inputText>
                 <h:outputLabel for="fNom">Nom</h:outputLabel>
                 <p:inputText id="fNom"
                              label="Nom"
@@ -19,17 +30,7 @@
                     <f:validateLength minimum="2" maximum="10" />
                     <f:ajax event="blur" render="newMessageError" />
                 </p:inputText>
-                <h:outputLabel for="fPrenom">Nom</h:outputLabel>
-                <p:inputText id="fPrenom"
-                             label="Prenom"
-                             value="#{personBean.prenom}"
-                             required="true"
-                             requiredMessage="Veuillez saisir un prenom"
-                             size="20"
-                             maxlength="60">
-                    <f:validateLength minimum="2" maximum="10" />
-                    <f:ajax event="blur" render="newMessageError" />
-                </p:inputText>
+
                 <h:message id="newMessageError" for="fNom"/>
             </fieldset>
             <br/>

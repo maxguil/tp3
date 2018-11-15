@@ -6,8 +6,7 @@
 
 
     <ui:define name="bodyContent">
-        Message : <h:outputLabel value="hello world"/>
-        <p:dataTable var="personne" value="#{displayPersonBean.personnes}">
+        <p:dataTable var="personne" value="#{displayPersonBean.getAll()}">
             <p:column headerText="nom">
                 <h:outputText value="#{personne.nom}" />
             </p:column>
