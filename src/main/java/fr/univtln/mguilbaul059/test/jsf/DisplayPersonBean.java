@@ -1,42 +1,33 @@
 package fr.univtln.mguilbaul059.test.jsf;
 
 import fr.univtln.mguilbaul059.test.Personne;
+import fr.univtln.mguilbaul059.test.PersonneManager;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Named
 @SessionScoped
-public class DisplayPersonBean implements Serializable {
+public class DisplayPersonBean implements Serializable{
 
+    List<Personne> personnes = new ArrayList<Personne>();
 
-    @PersistenceContext
-    EntityManager em;
+    @Inject
+    PersonneManager pm;
 
-    List<Personne> personnes = Arrays.asList(new Personne("nom", "prenom"),new Personne("max","guil"));//new ArrayList<Personne>();
-
-
-
-
-    @Transactional
     public void getAll() {
-
-        personnes=em.createNamedQuery("findAll").getResultList();
-        //personnes =  Arrays.asList(new Personne("nom", "prenom"),new Personne("max","guil"),new Personne("colo","kevin"));
-       // personnes=em.find(Personne.class,personnes);
+        personnes = pm.findAll();
     }
 
     public List<Personne> getPersonnes() {
         return personnes;
+    }
+
+    public void setPersonnes(List<Personne> personnes) {
+        this.personnes = personnes;
     }
 }

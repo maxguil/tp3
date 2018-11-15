@@ -8,7 +8,7 @@
         <h:form id="formulaire">
             <fieldset>
                 <legend>Ajout Personne</legend>
-                <h:outputLabel for="fNom">Nom</h:outputLabel>-->
+                <h:outputLabel for="fNom">Nom</h:outputLabel>
                 <p:inputText id="fNom"
                              label="Nom"
                              value="#{personBean.nom}"
@@ -19,6 +19,7 @@
                     <f:validateLength minimum="2" maximum="10" />
                     <f:ajax event="blur" render="newMessageError" />
                 </p:inputText>
+                <h:outputLabel for="fPrenom">Nom</h:outputLabel>
                 <p:inputText id="fPrenom"
                              label="Prenom"
                              value="#{personBean.prenom}"

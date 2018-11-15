@@ -1,9 +1,7 @@
 package fr.univtln.mguilbaul059.test;
 
 
-import javax.enterprise.inject.Default;
-import javax.inject.Inject;
-import javax.inject.Named;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -13,7 +11,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
-
 @NamedQuery(name="findAll",query="select p from Personne p")
 public class Personne {
     @XmlElement

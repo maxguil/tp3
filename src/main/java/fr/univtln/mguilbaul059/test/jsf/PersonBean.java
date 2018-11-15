@@ -16,7 +16,6 @@ import java.io.Serializable;
 @Named
 @SessionScoped
 public class PersonBean implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     @PersistenceContext(unitName = "personne")
     EntityManager em;
