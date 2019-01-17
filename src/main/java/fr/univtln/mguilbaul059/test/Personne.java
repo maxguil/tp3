@@ -2,6 +2,7 @@ package fr.univtln.mguilbaul059.test;
 
 
 
+import javax.json.JsonObject;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -23,6 +24,7 @@ public class Personne {
     }
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @XmlElement
     private int id;
 
     public Personne(String nom, String prenom) {

@@ -1,6 +1,7 @@
 package fr.univtln.mguilbaul059.test.jsf;
 
 import fr.univtln.mguilbaul059.test.Personne;
+import fr.univtln.mguilbaul059.test.PersonneManager;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -17,8 +18,8 @@ import java.io.Serializable;
 @SessionScoped
 public class PersonBean implements Serializable {
 
-    @PersistenceContext(unitName = "personne")
-    EntityManager em;
+    @Inject
+    PersonneManager pm;
 
     private String nom;
     private String prenom;
@@ -34,7 +35,7 @@ public class PersonBean implements Serializable {
 
     @Transactional
     public void createPerson() throws IOException {
-        em.persist(new Personne(nom,prenom));
+        pm.persist(new Personne(nom,prenom));
         nom=null;
         prenom=null;
 
